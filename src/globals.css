@@ -1,0 +1,241 @@
+/* 中式字体导入 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 中式设计主题色彩变量 */
+@layer base {
+  :root {
+    /* 中式配色方案 */
+    --background: 210 11% 15%; /* 深墨色背景 */
+    --foreground: 60 9% 98%; /* 象牙白文字 */
+    --card: 210 11% 18%; /* 卡片背景 */
+    --card-foreground: 60 9% 98%;
+    --popover: 210 11% 18%;
+    --popover-foreground: 60 9% 98%;
+    --primary: 45 100% 51%; /* 暖金色主色 */
+    --primary-foreground: 210 11% 15%;
+    --secondary: 30 50% 45%; /* 古铜色辅助色 */
+    --secondary-foreground: 60 9% 98%;
+    --muted: 210 11% 25%;
+    --muted-foreground: 60 5% 70%;
+    --accent: 45 100% 51%;
+    --accent-foreground: 210 11% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 9% 98%;
+    --border: 210 11% 25%;
+    --input: 210 11% 25%;
+    --ring: 45 100% 51%;
+    --radius: 0.75rem;
+    
+    /* 中式装饰色彩 */
+    --chinese-red: 0 65% 51%;
+    --jade-green: 120 25% 35%;
+    --imperial-yellow: 45 100% 51%;
+    --ink-black: 210 11% 15%;
+    --paper-white: 60 9% 98%;
+  }
+}
+
+/* 基础样式重置 */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Noto Sans SC', 'Noto Serif SC', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* 中文标题字体 */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 600;
+  }
+}
+
+/* 中式设计组件样式 */
+@layer components {
+  /* 古典卡片样式 */
+  .chinese-card {
+    @apply bg-card border border-border rounded-lg shadow-lg;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    border: 1px solid hsl(var(--primary) / 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .chinese-card:hover {
+    @apply shadow-xl;
+    border-color: hsl(var(--primary) / 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px hsl(var(--primary) / 0.1);
+  }
+  
+  /* 金色装饰边框 */
+  .golden-border {
+    border: 2px solid hsl(var(--primary));
+    border-image: linear-gradient(45deg, 
+      hsl(var(--primary)), 
+      hsl(var(--secondary)), 
+      hsl(var(--primary))
+    ) 1;
+  }
+  
+  /* 中式按钮样式 */
+  .chinese-button {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--primary));
+  }
+  
+  .chinese-button:hover {
+    @apply shadow-lg;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px hsl(var(--primary) / 0.3);
+  }
+  
+  /* 时间线样式 */
+  .timeline-node {
+    @apply w-12 h-12 rounded-full border-2 flex items-center justify-center;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    border-color: hsl(var(--primary));
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.3);
+  }
+  
+  .timeline-line {
+    @apply h-0.5;
+    background: linear-gradient(90deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--secondary)) 50%, 
+      hsl(var(--primary)) 100%
+    );
+  }
+  
+  /* 搜索框样式 */
+  .chinese-search {
+    @apply bg-card border border-border rounded-lg px-4 py-2;
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+  
+  .chinese-search:focus {
+    @apply outline-none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+  }
+  
+  /* 文字渐变效果 */
+  .gradient-text {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--secondary)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* 古典纹样背景 */
+  .pattern-bg {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--secondary) / 0.1) 0%, transparent 50%);
+    background-size: 100px 100px;
+  }
+}
+
+/* 工具类样式 */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* 中文字体类 */
+  .font-chinese-serif {
+    font-family: 'Noto Serif SC', serif;
+  }
+  
+  .font-chinese-sans {
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  
+  /* 动画效果 */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+}
+
+/* 动画关键帧 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .chinese-card {
+    @apply mx-2;
+  }
+  
+  .timeline-node {
+    @apply w-8 h-8;
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
+}
