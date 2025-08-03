@@ -87,6 +87,12 @@ VITE_TCB_REGION=ap-shanghai
 ### GitHub Pages 部署
 项目已配置自动化部署，推送到 `main` 分支即可自动部署到 GitHub Pages。
 
+### edgeone 的选择与运用
+我选择了腾讯云 EdgeOne Pages 作为整个项目的一站式部署、加速及安全解决方案。，主要利用了它的三大功能：  
+🚀1.我的项目代码完全托管在 GitHub (tuyiqing/oracle-bone-script) 上。EdgeOne Pages 完美地与我的 GitHub 仓库进行了集成，构建了一套完全自动化的持续集成与部署（CI/CD）流程。每当我完成一个新的功能或修复一个问题，只需将代码 git push 到 GitHub 的主分支。EdgeOne 就会自动将生成的 所有静态文件（HTML, CSS, JS, 图片等）部署到 EdgeOne 的全球边缘网络上。  
+🚀2.EdgeOne Pages 的核心优势就是其强大的全球内容分发网络（CDN）。当我的网站通过 EdgeOne Pages 发布后，它的所有静态资源（例如甲骨文图片）被自动缓存到了遍布全球的边缘节点上。  
+🚀3.EdgeOne Pages 自带了开箱即用的企业级安全防护，为我的网站筑起了一道坚固的防线。可以实现全站 HTTPS 加密，保障数据传输过程的安会，提升用户的信任度同时确保我的网站不会因为恶意攻击而瘫痪，时刻保护着这些珍贵的数字文化资产。  
+
 ## 🤝 贡献指南
 
 欢迎提交 Issue 和 Pull Request 来改进项目！
